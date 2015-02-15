@@ -32,10 +32,10 @@ shinyUI(fluidPage(
     ),
     column(9,
            navbarPage(
-             title = 'Results',
-             tabPanel('DataTable',     dataTableOutput('dtTable1')),
-             tabPanel('Graph',         verbatimTextOutput("text1")),
-             tabPanel('Data Dictionary',         verbatimTextOutput("text2"))
+             title = ' ',
+             tabPanel('DataTable',       dataTableOutput('dtTable1')),
+             tabPanel('Graph',           verbatimTextOutput("text1")),
+             tabPanel('Data Dictionary', includeHTML("data_dictionary.html"))
              
              
              )

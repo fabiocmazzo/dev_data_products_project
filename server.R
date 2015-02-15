@@ -10,7 +10,7 @@ shinyServer(
       mean(filteredBabies$wt)
     })
     
-    filteredDataset <- reactive({
+    filterDataset <- reactive({
       
       minAge           <- input$age[1]
       maxAge           <- input$age[2]
@@ -40,7 +40,7 @@ shinyServer(
     })
     
     
-    output$dtTable1 <- renderDataTable(filteredDataset())
+    output$dtTable1 <- renderDataTable(filterDataset())
     output$text1 <- renderPrint({input$unknowAge})
     output$meanWt <- renderPrint({meanWt()})
     
