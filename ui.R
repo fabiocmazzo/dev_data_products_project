@@ -34,7 +34,11 @@ shinyUI(fluidPage(
            navbarPage(
              title = 'Results',
              tabPanel('DataTable',     dataTableOutput('dtTable1')),
-             tabPanel('Graph',       verbatimTextOutput("text1")      ))
+             tabPanel('Graph',         verbatimTextOutput("text1")),
+             tabPanel('Data Dictionary',         verbatimTextOutput("text2"))
+             
+             
+             )
     )
   )
 ))
