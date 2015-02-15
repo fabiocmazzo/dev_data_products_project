@@ -29,6 +29,12 @@ shinyServer(
         filteredBabies <- babies[babies$smoke == input$smoke,]
       }
       
+       colnames(filteredBabies) <- c("id", "Pluralty", "Live Birth", "Date", "Gestation",
+                                     "Sex", "Birth Weight (Onces)", "Parity", "Mother's Race",
+                                     "Mother's Age", "Mother's Education", "Mother's Height", "Mother's Prepregnancy (Pounds)",
+                                     "Father's Race", "Father's Age", "Father's Education", "Father's Height", 
+                                     "Father's Weight", "Marital", "Family Yearly Income", "Smoke", "Time Smoke Quit", "Cigarrets Number")
+      
       filteredBabies
     
     })
