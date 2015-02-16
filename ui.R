@@ -26,8 +26,8 @@ shinyUI(fluidPage(
              
            ),
            wellPanel(
-             h4("Tips"),
-             tags$small("Select the type of presentation in the tabs at the top")
+             h4("Tip"),
+             tags$small("Select tabs at the top")
            )
     ),
     column(9,
@@ -35,9 +35,8 @@ shinyUI(fluidPage(
              title = ' ',
              tabPanel('Results',           plotOutput("hist"), verbatimTextOutput("mean")),
              tabPanel('DataTable',       dataTableOutput('dtTable1')),
-             tabPanel('Data Dictionary', includeHTML("data_dictionary.html"))
-             
-             
+             tabPanel('Documentation', includeHTML("documentation.html"))
+            
              )
     )
   )
