@@ -22,7 +22,21 @@ shinyUI(fluidPage(
                                              'Smokes now' = 1,
                                              'Until current pregnancy' = 2,
                                              'Until did, not now' = 3,
-                                             'Unkown' = 9))
+                                             'Unkown' = 9)),
+            
+             selectInput("cnumber", "Cigarrets Number", c('All' = 100,
+                                             'Never Smoked' = 0,
+                                             '1 - 4' = 1,
+                                             '5 - 9' = 2,
+                                             '10 - 14' = 3,
+                                             '15 - 19' = 4,
+                                             '20 - 29' = 5,
+                                             '30 - 39' = 6,
+                                             '40 - 60' = 7,
+                                             '60+' = 8,
+                                             'Smoke but don\'t know' = 9,
+                                             'Unknown' = 98,
+                                             'Not asked' = 99))
              
            ),
            wellPanel(

@@ -24,6 +24,11 @@ shinyServer(
         filteredBabies <- filteredBabies[filteredBabies$smoke == input$smoke,]
       }
       
+      # 100 = All
+      if(input$cnumber != 100) {
+        filteredBabies <- filteredBabies[filteredBabies$number == input$cnumber,]
+      }
+      
        colnames(filteredBabies) <- c("id", "Pluralty", "Live Birth", "Date", "Gestation",
                                      "Sex", "Birth Weight (Onces)", "Parity", "Mother's Race",
                                      "Mother's Age", "Mother's Education", "Mother's Height", "Mother's Prepregnancy (Pounds)",
@@ -40,15 +45,21 @@ shinyServer(
     output$dtTable1 <- renderDataTable(filterDataset())
     output$hist <- renderPlot({
       dataFiltered  <- filterDataset()
-      hist(dataFiltered$"Birth Weight (Onces)",xlab="Weight (Onces)", 
-           main="Infant's Birth Weight")
-      abline(v = mean(dataFiltered$"Birth Weight (Onces)"), col = "blue", lwd = 2)
+      if(nrow(dataFiltered) > 0) {
+        hist(dataFiltered$"Birth Weight (Onces)",xlab="Weight (Onces)", 
+             main="Infant's Birth Weight",breaks=100)
+        abline(v = mean(dataFiltered$"Birth Weight (Onces)"), col = "blue", lwd = 2)
+      }
     })
+   
     output$mean <- renderText({
       dataFiltered  <- filterDataset()
-      paste("Infant's Weight Mean: ", round(mean(dataFiltered$"Birth Weight (Onces)"),2))
-      
-      })
+       if(nrow(dataFiltered) > 0) {
+         paste("Infant's Weight Mean: ", round(mean(dataFiltered$"Birth Weight (Onces)"),2))
+       } else {
+         "No data found"
+       }
+     })
   
     
   
