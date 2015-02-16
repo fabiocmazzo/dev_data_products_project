@@ -33,8 +33,8 @@ shinyUI(fluidPage(
     column(9,
            navbarPage(
              title = ' ',
+             tabPanel('Results',           plotOutput("hist"), verbatimTextOutput("mean")),
              tabPanel('DataTable',       dataTableOutput('dtTable1')),
-             tabPanel('Graph',           verbatimTextOutput("text1")),
              tabPanel('Data Dictionary', includeHTML("data_dictionary.html"))
              
              
